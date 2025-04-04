@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tab Search</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body class="bg-white p-4 w-96">
+  <div class="flex flex-col">
+    <h1 class="text-lg font-semibold mb-2">ChatGPT Tab Assistant</h1>
+    
+    <form id="search-form" class="mb-3">
+      <div class="relative">
+        <input 
+          id="search-input" 
+          type="text" 
+          placeholder="Ask about your open tabs..." 
+          class="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400"
+          autofocus
+        >
+        <button 
+          type="submit"
+          class="absolute right-2 top-2 text-gray-500 hover:text-gray-700"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+      </div>
+    </form>
+    
+    <div id="loading-indicator" class="hidden py-2 flex justify-center items-center">
+      <div class="animate-pulse flex space-x-2">
+        <div class="h-2 w-2 bg-blue-500 rounded-full"></div>
+        <div class="h-2 w-2 bg-blue-500 rounded-full"></div>
+        <div class="h-2 w-2 bg-blue-500 rounded-full"></div>
+      </div>
+      <span class="ml-2 text-sm text-blue-500">Asking ChatGPT...</span>
+    </div>
+    
+    <div id="results-container" class="mt-2 max-h-96 overflow-y-auto">
+      <div class="text-sm text-gray-500 italic">
+        Type a question about your open tabs and press Enter. For example:
+        <ul class="list-disc pl-5 mt-1 space-y-1">
+          <li>Which tab has information about climate change?</li>
+          <li>Find the tab with my email</li>
+          <li>Summarize what I have open right now</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
+
